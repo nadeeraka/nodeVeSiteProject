@@ -2,6 +2,7 @@ const express = require('express');
 const exphbs  = require('express-handlebars');
 
 const {mongoose} = require('./db/db');
+const {Idea} = require('./model/Idea');
 
 const app = express();
 
