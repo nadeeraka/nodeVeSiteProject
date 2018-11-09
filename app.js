@@ -1,6 +1,7 @@
 const express = require('express');
 const exphbs  = require('express-handlebars');
 
+const {mongoose} = require('./db/db');
 
 const app = express();
 
