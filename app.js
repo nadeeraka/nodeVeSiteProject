@@ -11,8 +11,13 @@ app.set('view engine', 'handlebars');
 app.get('/',(req,res)=>
 {
     res.render('home',{
-        title:" welcome to handlebars"
+        title:" Welcome "
     });
+})
+
+app.get('/about',(req,res)=>
+{
+    res.render('about');
 })
 
 const Port = process.env.process || 3000;
