@@ -1,7 +1,8 @@
 {{# each result}}
 <div class="card card-body mb-3">
     <h3>{{title}}</h3>
-<p>{{details}}</p>
+    <p>{{details}}</p>
+    <a href="/ideas/edit/{{id}}" class="btn btn-dark btn-block">Edit</a>
 </div>
 {{else}}
 <p>No idea found !</p>

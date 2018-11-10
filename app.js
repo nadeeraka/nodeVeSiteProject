@@ -30,6 +30,20 @@ app.get('/ideas/add',(req,res)=>
     res.render('ideas/add');
 })
 
+app.get('/ideas/edit/:id', (req, res) => 
+{
+    Idea.findOne({
+        _id:req.params.id
+    }).then((result) =>
+    {
+        res.render('ideas/edit',{result});    
+    }).catch((err) => 
+    {
+    console.log('error occure ',err);    
+    });
+
+    
+});
 app.get('/ideas',(req,res)=>
 {
     Idea.find({})
