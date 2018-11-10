@@ -30,6 +30,18 @@ app.get('/ideas/add',(req,res)=>
     res.render('ideas/add');
 })
 
+app.get('/ideas',(req,res)=>
+{
+    Idea.find({})
+    .sort({date:'desc'})
+    .then((result) => {
+        res.render('ideas/index',
+        { result});
+    }).catch((err) => {
+        return err;
+    });
+})
+
 app.post('/ideas/add',(req,res)=>
 {
     let errors = [];
@@ -66,7 +78,17 @@ app.post('/ideas/add',(req,res)=>
       });   
     }
     else{
-        res.send('pass');
+        const newUser = {
+            title:req.body.title,
+            details:req.body.details
+        }
+        new Idea(newUser)
+        .save()
+        .then((result) => {
+            res.redirect('/ideas');
+        }).catch((err) => {
+           console.log(err); 
+        });
     }
 
 })
