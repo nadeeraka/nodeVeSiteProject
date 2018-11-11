@@ -1,8 +1,14 @@
 {{# each result}}
+
 <div class="card card-body mb-3">
     <h3>{{title}}</h3>
     <p>{{details}}</p>
-    <a href="/ideas/edit/{{id}}" class="btn btn-dark btn-block">Edit</a>
+    <a href="/ideas/edit/{{id}}" class="btn btn-dark btn-block mb-3">Edit</a>
+    <form action="/ideas/{{id}}?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="DELETE" class="btn btn-danger btn-block">
+    </form>
+
 </div>
 {{else}}
 <p>No idea found !</p>
